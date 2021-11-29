@@ -2,40 +2,24 @@ package racingcar.domains;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import racingcar.InjectMoveImpl;
-import racingcar.MoveCarStrategy;
+import racingcar.strategy.InjectMoveImpl;
+import racingcar.strategy.MoveCarStrategy;
+import racingcar.fixture.CarsFixture;
 
 class CarsTest {
 
     Cars cars;
-
     Cars cars2;
-
     Cars cars3;
 
     @BeforeEach
     public void init(){
-        List<Car> carsList = new ArrayList<>();
-        carsList.add(Car.from("포르쉐"));
-        carsList.add(Car.from("현대"));
-        carsList.add(Car.from("기아"));
-        cars = new Cars(carsList);
-
-        List<Car> carsList2 = new ArrayList<>();
-        carsList2.add(Car.from("포르쉐", 3));
-        carsList2.add(Car.from("현대", 4) );
-        carsList2.add(Car.from("기아", 5));
-        cars2 = new Cars(carsList2);
-
-        List<Car> carsList3 = new ArrayList<>();
-        carsList3.add(Car.from("포르쉐", 3));
-        carsList3.add(Car.from("현대", 3) );
-        carsList3.add(Car.from("기아", 2));
-        cars3 = new Cars(carsList3);
+        cars = CarsFixture.getPositionZeroCars();
+        cars2 = CarsFixture.getNoneDuplicationPositionCars();
+        cars3 = CarsFixture.getDuplicationPositionCars();
     }
 
     @Test

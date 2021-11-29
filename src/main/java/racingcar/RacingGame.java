@@ -4,6 +4,7 @@ import java.util.List;
 import racingcar.domains.Car;
 import racingcar.domains.Cars;
 import racingcar.domains.WinnerCars;
+import racingcar.strategy.MoveCarStrategy;
 import racingcar.ui.ResultView;
 
 public class RacingGame {

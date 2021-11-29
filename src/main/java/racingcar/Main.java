@@ -1,6 +1,7 @@
 package racingcar;
 
 import java.util.Scanner;
+import racingcar.strategy.RandomMoveImpl;
 import racingcar.ui.InputView;
 import racingcar.ui.ResultView;
 
