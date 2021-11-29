@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.Random;
 import racingcar.domains.Car;
 
 public class RandomMoveImpl implements MoveCarStrategy {
@@ -9,7 +8,7 @@ public class RandomMoveImpl implements MoveCarStrategy {
 
     @Override
     public Car getCar(final Car car) {
-        int randomNumber = new Random(NUMBER_RANGE).nextInt();
+        int randomNumber = (int)(Math.random() * 10);
         car.checkMoveCondition(randomNumber);
         return car;
     }

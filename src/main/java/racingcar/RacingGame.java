@@ -1,7 +1,10 @@
 package racingcar;
 
+import java.util.List;
 import racingcar.domains.Car;
 import racingcar.domains.Cars;
+import racingcar.domains.WinnerCars;
+import racingcar.ui.ResultView;
 
 public class RacingGame {
 
@@ -13,18 +16,20 @@ public class RacingGame {
         this.tryCount = tryCount;
     }
 
-    public void process(MoveCarStrategy randomMove){
-        //자동차 세팅
+    public ResultView process(MoveCarStrategy randomMove){
         Cars cars = new Cars(Car.listFrom(carsName));
 
-        //레이싱
+        ResultView resultView = new ResultView();
+        resultView.comparePosition(cars);
         for(int i = 0; i < tryCount; i++){
             cars.racingCars(randomMove);
-            //ResultView 출력
+            resultView.comparePosition(cars);
         }
 
-        //승자 추출
-
+        List<Car> winnerCarList = cars.winnerCar();
+        WinnerCars winnerCars = new WinnerCars(winnerCarList);
+        resultView.resultWinner(winnerCars);
+        return resultView;
     }
 
 }

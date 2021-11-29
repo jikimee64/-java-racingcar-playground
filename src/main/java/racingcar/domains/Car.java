@@ -30,7 +30,7 @@ public class Car {
     }
 
     public static Car from(final String name) {
-        return new Car(name, 0);
+        return new Car(name, 1);
     }
 
     public static Car from(final String name, int position) {

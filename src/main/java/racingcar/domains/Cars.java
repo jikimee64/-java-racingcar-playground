@@ -24,7 +24,14 @@ public class Cars {
             .collect(Collectors.toList());
     }
 
-    public int getMaxPosition() {
+    public List<Car> winnerCar(){
+        List<Car> collect = cars.stream()
+            .filter(car -> car.getPosition() == getMaxPosition())
+            .collect(Collectors.toList());
+        return collect;
+    }
+
+    private int getMaxPosition() {
         return this.cars.stream()
             .max(Comparator.comparingInt(Car::getPosition))
             .map(car -> car.getPosition())
