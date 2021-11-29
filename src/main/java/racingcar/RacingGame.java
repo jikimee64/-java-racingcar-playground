@@ -1,6 +1,5 @@
 package racingcar;
 
-import java.util.List;
 import racingcar.domains.Car;
 import racingcar.domains.Cars;
 
@@ -16,12 +15,11 @@ public class RacingGame {
 
     public void process(MoveCarStrategy randomMove){
         //자동차 세팅
-        Cars cars = new Cars();
-        cars.addCars(carsName);
+        Cars cars = new Cars(Car.listFrom(carsName));
 
         //레이싱
         for(int i = 0; i < tryCount; i++){
-            List<Car> carsList = cars.racingCars(randomMove);
+            cars.racingCars(randomMove);
             //ResultView 출력
         }
 
@@ -29,4 +27,4 @@ public class RacingGame {
 
     }
 
-};
+}
