@@ -1,5 +1,33 @@
 package racingcar.domains;
 
-public class Car {
+public class Car{
+
+    public static final int MOVE_CONDITION = 4;
+
+    private String name;
+    private int position;
+
+    public Car(final String name, final int position) {
+        this.name = name;
+        this.position = position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void checkMoveCondition(int number) {
+        if (number >= MOVE_CONDITION) {
+            this.position += 1;
+        }
+    }
+
+    public static Car from(final String name){
+        return new Car(name, 0);
+    }
 
 }

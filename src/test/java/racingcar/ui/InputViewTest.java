@@ -15,8 +15,8 @@ class InputViewTest {
     private final InputValidation inputValidation = new InputValidation();
 
     @ParameterizedTest
-    @ValueSource(strings = {"@@@@@@", "!!!!!ss", "asddas22"})
-    void test2(String carName){
+    @ValueSource(strings = {"@@@@@@,!!!!!ss,asddas22"})
+    void 자동차이름_사이즈가_5자이상일_경우_예외처리(String carName){
         InputStream in = generateInputStream(carName);
         System.setIn(in);
         scanner = new Scanner(System.in);
@@ -29,7 +29,7 @@ class InputViewTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"@","s"})
-    void validNumberFormat(String tryCount){
+    void 숫자양식에_맞지않을경우_예외처리(String tryCount){
         InputStream in = generateInputStream(tryCount);
         System.setIn(in);
         scanner = new Scanner(System.in);
